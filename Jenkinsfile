@@ -7,12 +7,11 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/HARSHINI-PAM/ai-log-analyser'
             }
         }
-
         stage('Install Dependencies') {
-            steps {
-                bat 'pip install -r requirements.txt'
-            }
-        }
+    steps {
+        bat 'pip install -r ml/requirements.txt'
+           }
+       }
 
         stage('Train Model') {
             steps {
@@ -42,3 +41,4 @@ pipeline {
         }
     }
 }
+
