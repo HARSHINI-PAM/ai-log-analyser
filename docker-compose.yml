@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  ml:
+    build: ./ml
+    volumes:
+      - ml-model:/ml-model
+  backend:
+    build: ./backend
+    depends_on:
+      - ml
+    ports:
+      - "8000:8000"
+    volumes:
+      - ml-model:/ml-model:ro
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+volumes:
+  ml-model:

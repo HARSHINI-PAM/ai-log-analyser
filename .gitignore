@@ -1,0 +1,29 @@
+# Node / React
+node_modules/
+build/
+dist/
+.env
+.env.local
+
+# Python / FastAPI
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+*.log
+logs/
+*.db
+
+# Docker
+*.pid
+*.sock
+
+# VS Code / Cursor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
