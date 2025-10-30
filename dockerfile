@@ -1,5 +1,7 @@
+
 FROM python:3.10-slim
 WORKDIR /app
-COPY . /app
+COPY ml/requirements.txt .
 RUN pip install -r requirements.txt
-CMD ["python", "train_model.py"]
+COPY . .
+CMD ["python", "ml/train_model.py"]
