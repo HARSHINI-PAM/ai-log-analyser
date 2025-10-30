@@ -12,12 +12,13 @@ pipeline {
         bat 'pip install -r ml/requirements.txt'
            }
        }
-
-        stage('Train Model') {
-            steps {
-                bat 'python train_model.py'
-            }
+       stage('Train Model') {
+    steps {
+        dir('ml') {
+            bat 'python train_model.py'
         }
+       }
+     }
 
         stage('Build Docker Image') {
             steps {
@@ -41,4 +42,5 @@ pipeline {
         }
     }
 }
+
 
